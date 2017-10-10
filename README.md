@@ -20,6 +20,5 @@ Server mail local :
 
 - port 1025
 
-
 For create a Middleware:
 - php artisan make:middleware (NameYourMiddleware ex:FiltreIpMiddleware)
