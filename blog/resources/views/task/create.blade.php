@@ -4,6 +4,15 @@
   <div class="row">
     <div class="col-sm-12 panel">
       <h1>Add task</h1>
+      @if (count($errors) > 0)
+        <ul>
+          @foreach ($errors->all() as $error)
+            <li>
+              {{$error}}
+            </li>
+          @endforeach
+        </ul>
+      @endif
       <form method="POST" action="{{route('tasks.store')}}">
         {{csrf_field()}}
         <input type="text" name="title" placeholder="Titre">

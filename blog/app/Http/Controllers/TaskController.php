@@ -43,7 +43,21 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $this->validate($request,[
+        'title' => 'required',
+        'description' => 'required',
+      ],
+      [
+        'title.required' => 'Un titre est requis.',
+        'description.required' => 'Une description est requise.',
+      ]);
+        Task::create([
+          'user_id' => Auth::user()->id,
+          'title' => $request->title,
+          'description' => $request->body,
+        ]);
+
+        return redirect()->route('task.index');
     }
 
     /**

@@ -3,9 +3,8 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Support\Facades\Auth;
 
-class isAdminMiddleware
+class isAdmin
 {
     /**
      * Handle an incoming request.
@@ -16,9 +15,9 @@ class isAdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-      if(Auth::check() && Auth::user()->is_admin == 1){
-        return $next($request);
-      }
-      return $next('home');
+        if(Auth::check() && Auth::user()->is_admin == 1){
+            return $next($request);
+        }
+        return $next('home');
     }
 }
