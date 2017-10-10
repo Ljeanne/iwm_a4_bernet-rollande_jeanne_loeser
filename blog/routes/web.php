@@ -21,3 +21,6 @@ Route::get('/', function () {
 // Route::get('/tasks', 'TaskController@index');
 // Route::get('/tasks/{id}', 'TaskController@show');
 Route::resource('/tasks', 'TaskController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

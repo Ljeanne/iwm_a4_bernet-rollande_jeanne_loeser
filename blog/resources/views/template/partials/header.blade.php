@@ -66,3 +66,15 @@
         </style>
     </head>
     <body>
+      <header>
+        <nav>
+          <ul>
+            <li>
+              <a href="{{route('tasks.index')}}">Liste des tasks</a>
+            </li>
+            <li>
+              <a href="{{route('tasks.create')}}">Ajout d'une tâche</a>
+            </li>
+          </ul>
+        </nav>
+      </header>

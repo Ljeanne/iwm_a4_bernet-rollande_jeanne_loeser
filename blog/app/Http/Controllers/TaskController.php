@@ -3,9 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Models\Task;
+use App\Models\User;
 
 class TaskController extends Controller
 {
+
+  public function __controller()
+  {
+    $this->midleware('isAdmin');
+  }
     /**
      * Display a listing of the resource.
      *
@@ -13,13 +21,8 @@ class TaskController extends Controller
      */
     public function index()
     {
-      $tasks = [
-        'Send mail to Adrien',
-        'Out the cat',
-        'Make video'
-      ];
+      $tasks = Task::all();
       return view('task.index', compact('tasks'));
-        //
     }
 
     /**
@@ -51,8 +54,9 @@ class TaskController extends Controller
      */
     public function show($id)
     {
-      return 'Tâche n°'.$id;
-        //
+      $task = Task::find($id);
+
+      return view('task.show', compact('task'));
     }
 
     /**
