@@ -23,6 +23,18 @@
                             <li>{{$movie->overview}}</li>
                         </ul>
                         <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{$movie->poster_path}}">
+                            <form method="POST" action="{{route('movies.store')}}">
+                                {{csrf_field()}}
+                                <input type="hidden" value="{{$movie->id}}" name="movie_id">
+                                <input type="hidden" value="0" name="seen">
+                                <button type="submit" class="btn btn-primary" value="Send">Ajouter à ma liste non vue</button>
+                            </form>
+                            <form method="POST" action="{{route('movies.store')}}">
+                                {{csrf_field()}}
+                                <input type="hidden" value="{{$movie->id}}" name="movie_id">
+                                <input type="hidden" value="1" name="seen">
+                                <button type="submit" class="btn btn-primary" value="Send">Déja vu</button>
+                            </form>
                         @endforeach
 
                     You are logged in!

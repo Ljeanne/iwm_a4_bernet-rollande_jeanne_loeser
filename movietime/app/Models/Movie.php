@@ -21,7 +21,7 @@ class Movie extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'moviedb_id', 'category', 'seen'
+        'user_id', 'movie_id', 'category', 'seen'
     ];
 
     /**

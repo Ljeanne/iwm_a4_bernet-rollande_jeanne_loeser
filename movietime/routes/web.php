@@ -16,6 +16,7 @@ Route::get('/', 'HomeController@index');
 // Route::get('/tasks', 'TaskController@index');
 // Route::get('/tasks/{id}', 'TaskController@show');
 Route::resource('/tasks', 'TaskController');
+Route::resource('/movies', 'MovieController');
 Auth::routes();
 Route::get('/search/{search}', 'SearchController@index');
 
