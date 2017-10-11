@@ -19,6 +19,8 @@
                             <li>{{$movie->id}}</li>
                             <li>{{$movie->title}}</li>
                             <li>{{$movie->release_date}}</li>
+                            <li>{{$movie->genre_ids[0]}}</li>
+                            <li>{{$movie->overview}}</li>
                         </ul>
                         <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{$movie->poster_path}}">
                         @endforeach
