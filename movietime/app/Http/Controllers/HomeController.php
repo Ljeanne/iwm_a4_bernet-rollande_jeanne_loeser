@@ -23,6 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        // Affiche la page d'accueil : suggestions, films récents...
         return view('home');
     }
 }
