@@ -14,10 +14,11 @@ class SearchController extends Controller
      */
     public function index($string = false)
     {
+        $movies = [];
         if ($string) {
             // Récupérer string dans l'API
             $client = new GuzzleHttp\Client();
-            $res = $client->get('http://api.themoviedb.org/3/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc&api_key=14549aeb10d953e4b4868c68a1955393');
+            $res = $client->get('http://api.themoviedb.org/3/search/movie?&api_key=14549aeb10d953e4b4868c68a1955393&query='.$string);
             //echo $res->getStatusCode(); // 200
             $movies = $res->getBody();
             $movies = GuzzleHttp\json_decode($movies);
