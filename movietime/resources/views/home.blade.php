@@ -27,12 +27,14 @@
                                 {{csrf_field()}}
                                 <input type="hidden" value="{{$movie->id}}" name="movie_id">
                                 <input type="hidden" value="0" name="seen">
+                                <input type="hidden" value="{{$movie->genre_ids[0]}}" name="category">
                                 <button type="submit" class="btn btn-primary" value="Send">Ajouter à ma liste non vue</button>
                             </form>
                             <form method="POST" action="{{route('movies.store')}}">
                                 {{csrf_field()}}
                                 <input type="hidden" value="{{$movie->id}}" name="movie_id">
                                 <input type="hidden" value="1" name="seen">
+                                <input type="hidden" value="{{$movie->genre_ids[0]}}" name="category">
                                 <button type="submit" class="btn btn-primary" value="Send">Déja vu</button>
                             </form>
                         @endforeach

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\models\movie;
+use App\Models\Movie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MovieController extends Controller
 {
@@ -50,7 +51,7 @@ class MovieController extends Controller
             'seen' => $request->seen,
         ]);
 
-        return redirect()->route('tasks.index');
+        return redirect()->route('home');
     }
 
     /**
