@@ -14,6 +14,15 @@
                         </div>
                     @endif
 
+                    @foreach($movies as $movie)
+                        <ul>
+                            <li>{{$movie->id}}</li>
+                            <li>{{$movie->title}}</li>
+                            <li>{{$movie->title}}</li>
+                        </ul>
+                        <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{$movie->poster_path}}">
+                        @endforeach
+
                     You are logged in!
                 </div>
             </div>
