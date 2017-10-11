@@ -11,12 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    $firstname = "melissa";
-    $name = "loeser";
-    return view('welcome', compact('firstname','name'));
-//    return view('welcome', ['nom' => $name, 'prenom' => $firstname]);
-});
+Route::get('/', 'HomeController@index');
 
 // Route::get('/tasks', 'TaskController@index');
 // Route::get('/tasks/{id}', 'TaskController@show');
