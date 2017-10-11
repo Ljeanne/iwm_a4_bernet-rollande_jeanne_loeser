@@ -6,6 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
 {
+
+/*    protected $fillable = ['title', 'description', 'done'];
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }*/
+
+
     /**
     * The Table
     *
@@ -19,7 +27,7 @@ class Task extends Model
     * @var array
     */
     protected $fillable = [
-      'user_id', 'title', 'description',
+      'user_id', 'title', 'description', 'done'
     ];
 
     /**

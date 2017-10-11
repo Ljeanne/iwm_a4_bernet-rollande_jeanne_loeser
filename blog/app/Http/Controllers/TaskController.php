@@ -6,14 +6,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Task;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
 
-  public function __controller()
-  {
-    $this->midleware('isAdmin');
-  }
+    public function __controller()
+    {
+        $this->midleware('isAdmin');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -21,8 +22,8 @@ class TaskController extends Controller
      */
     public function index()
     {
-      $tasks = Task::all();
-      return view('task.index', compact('tasks'));
+        $tasks = Task::all();
+        return view('task.index', compact('tasks'));
     }
 
     /**
@@ -43,21 +44,21 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-      $this->validate($request,[
-        'title' => 'required',
-        'description' => 'required',
-      ],
-      [
-        'title.required' => 'Un titre est requis.',
-        'description.required' => 'Une description est requise.',
-      ]);
+        $this->validate($request,[
+            'title' => 'required',
+            'description' => 'required',
+        ],
+            [
+                'title.required' => 'Un titre est requis.',
+                'description.required' => 'Une description est requise.',
+            ]);
         Task::create([
-          'user_id' => Auth::user()->id,
-          'title' => $request->title,
-          'description' => $request->body,
+            'user_id' => Auth::user()->id,
+            'title' => $request->title,
+            'description' => $request->description,
         ]);
 
-        return redirect()->route('task.index');
+        return redirect()->route('tasks.index');
     }
 
     /**
@@ -68,9 +69,9 @@ class TaskController extends Controller
      */
     public function show($id)
     {
-      $task = Task::find($id);
+        $task = Task::find($id);
 
-      return view('task.show', compact('task'));
+        return view('task.show', compact('task'));
     }
 
     /**
@@ -81,7 +82,9 @@ class TaskController extends Controller
      */
     public function edit($id)
     {
-        //
+        $task = Task::find($id);
+
+        return view('task.edit', compact('task'));
     }
 
     /**
@@ -93,7 +96,11 @@ class TaskController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $task = Task::find($id);
+        $task->update($request->all());
+
+        return redirect()->back();
     }
 
     /**
@@ -104,6 +111,11 @@ class TaskController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $nerd = Nerd::find($id);
+        $nerd->delete();
+
+        // redirect
+        Session::flash('message', 'Successfully deleted the nerd!');
+        return Redirect::to('nerds');
     }
 }

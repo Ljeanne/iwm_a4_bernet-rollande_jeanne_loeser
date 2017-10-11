@@ -1,4 +1,4 @@
-@extends('template.app')
+@extends('layouts.app')
 @section('content')
 <div class="container">
   <div class="row">
@@ -6,7 +6,7 @@
       <h1>To do list</h1>
       <ul>
         @forelse($tasks as $task)
-          <li><a href="{{route('tasks.show', $task->id)}}">{{$task->title}}, Utilisateur : {{$task->user->name}}
+          <li><a href="{{route('tasks.edit', $task->id)}}">Edit task</a> <a href="{{route('tasks.show', $task->id)}}">{{$task->title}}, Utilisateur : {{$task->user->name}}
             @if($task->done)
             <span class="label label-success">Success</span>
             @else

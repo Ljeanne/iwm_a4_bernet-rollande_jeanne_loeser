@@ -32,13 +32,40 @@
                         {{ config('app.name', 'Laravel') }}
                     </a>
                 </div>
+                @section('content')
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Dashboard</div>
 
+                                    <div class="panel-body">
+                                        @if (session('status'))
+                                            <div class="alert alert-success">
+                                                {{ session('status') }}
+                                            </div>
+                                        @endif
+
+                                        You are logged in!
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endsection
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         &nbsp;
                     </ul>
-
+                    <ul class="nav navbar-nav navbar-left">
+                        <li>
+                            <a href="{{route('tasks.index')}}">Liste des tasks</a>
+                        </li>
+                        <li>
+                            <a href="{{route('tasks.create')}}">Ajout d'une tâche</a>
+                        </li>
+                    </ul>
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
