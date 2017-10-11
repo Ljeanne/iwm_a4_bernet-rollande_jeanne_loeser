@@ -39,4 +39,8 @@ class User extends Authenticatable
     public function task(){
       return $this->hasMany('App\Models\Task');
     }
+
+    public function movies(){
+        return $this->hasMany('App\Models\Movie');
+    }
 }
