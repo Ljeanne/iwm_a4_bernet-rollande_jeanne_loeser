@@ -20,5 +20,12 @@ Server mail local :
 
 - port 1025
 
+If (error keys app not valid) generate a new key:
+- php artisan key:generate
+- after php artisan serve reload
+
 For create a Middleware:
 - php artisan make:middleware (NameYourMiddleware ex:FiltreIpMiddleware)
+
+API The movie DB:
+- https://api.themoviedb.org/3/movie/550?api_key=14549aeb10d953e4b4868c68a1955393
