@@ -41898,6 +41898,8 @@ var normalizeComponent = __webpack_require__(37)
 var __vue_script__ = __webpack_require__(38)
 /* template */
 var __vue_template__ = __webpack_require__(39)
+/* template functional */
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -41907,13 +41909,13 @@ var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __vue_script__,
   __vue_template__,
+  __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
   __vue_module_identifier__
 )
 Component.options.__file = "resources/assets/js/components/Example.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] Example.vue: functional components are not supported with templates, they should use render functions.")}
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
 
 /* hot reload */
 if (false) {(function () {
@@ -41922,9 +41924,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-5e8d45e4", Component.options)
+    hotAPI.createRecord("data-v-07fb2c55", Component.options)
   } else {
-    hotAPI.reload("data-v-5e8d45e4", Component.options)
+    hotAPI.reload("data-v-07fb2c55", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -41940,12 +41942,14 @@ module.exports = Component.exports
 
 /* globals __VUE_SSR_CONTEXT__ */
 
-// this module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle
+// IMPORTANT: Do NOT use ES2015 features in this file.
+// This module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle.
 
 module.exports = function normalizeComponent (
   rawScriptExports,
   compiledTemplate,
+  functionalTemplate,
   injectStyles,
   scopeId,
   moduleIdentifier /* server only */
@@ -41969,6 +41973,12 @@ module.exports = function normalizeComponent (
   if (compiledTemplate) {
     options.render = compiledTemplate.render
     options.staticRenderFns = compiledTemplate.staticRenderFns
+    options._compiled = true
+  }
+
+  // functional template
+  if (functionalTemplate) {
+    options.functional = true
   }
 
   // scopedId
@@ -42009,6 +42019,7 @@ module.exports = function normalizeComponent (
     var existing = functional
       ? options.render
       : options.beforeCreate
+
     if (!functional) {
       // inject component registration as beforeCreate hook
       options.beforeCreate = existing
@@ -42099,7 +42110,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-5e8d45e4", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-07fb2c55", module.exports)
   }
 }
 
