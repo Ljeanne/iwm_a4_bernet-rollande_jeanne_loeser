@@ -24,7 +24,7 @@ class SearchController extends Controller
             $movies = GuzzleHttp\json_decode($movies);
             $movies = $movies->results;
         }
-        //dd($movies->results);
+        //dd($movies);
         return view('search', ['string' => $string, 'movies' => $movies]);
     }
 
