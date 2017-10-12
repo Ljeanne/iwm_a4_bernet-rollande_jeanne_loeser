@@ -54,6 +54,6 @@
         </div>
     </div>
 </footer>
-<!-- end o
+<!-- end -->
 </body>
 </html>
