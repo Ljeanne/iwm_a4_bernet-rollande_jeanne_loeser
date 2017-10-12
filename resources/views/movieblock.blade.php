@@ -10,8 +10,20 @@
                 <p>{{ substr($movie->overview, 0, 200) }} <a href="">(read more)</a></p>
             </div>
             <div class="btn col-md-12">
-                <button>TO SEE</button>
-                <button>SEEN</button>
+                <form method="POST" action="{{route('movies.store')}}">
+                    {{csrf_field()}}
+                    <input type="hidden" value="{{$movie->id}}" name="movie_id">
+                    <input type="hidden" value="0" name="seen">
+                    <input type="hidden" value="{{$movie->genre_ids[0]}}" name="category">
+                    <button type="submit" class="" value="Send">Ajouter à ma liste non vue</button>
+                </form>
+                <form method="POST" action="{{route('movies.store')}}">
+                    {{csrf_field()}}
+                    <input type="hidden" value="{{$movie->id}}" name="movie_id">
+                    <input type="hidden" value="1" name="seen">
+                    <input type="hidden" value="{{$movie->genre_ids[0]}}" name="category">
+                    <button type="submit" class="" value="Send">Déja vu</button>
+                </form>
                 <div class="social-btn">
                     <a href="#" class="parent-btn"><i class="ion-heart"></i>I want to see this movie</a>
                 </div>
