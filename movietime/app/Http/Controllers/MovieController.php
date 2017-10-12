@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Movie;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use GuzzleHttp;
@@ -19,11 +20,21 @@ class MovieController extends Controller
     {
         // Affiche la liste des films à regarder, puis la liste des films vus (Pages "Mes films")
         $user = Auth::user();
-        if ($user)
-        {
-            $movies = Movie::all();
-            return view('movie.index', compact('movies'));
+
+        $movies = Movie::all();
+        $client = new GuzzleHttp\Client();
+        foreach ($movies as $movie){
+            $res = $client->get('https://api.themoviedb.org/3/movie/550?api_key=14549aeb10d953e4b4868c68a1955393');
+            //echo $res->getStatusCode(); // 200
+            $movie = $res->getBody();
+            $movie = GuzzleHttp\json_decode($movie);
+            $movie = $movie->results;
         }
+        /*dd($movies);
+        dd($user->id);*/
+        //$movies = $movies->where("user_id", "=", $user->id)->get();
+
+        return view('movie.index', compact('movie'));
     }
 
     /**
@@ -112,8 +123,13 @@ class MovieController extends Controller
      * @param  \App\models\movie  $movie
      * @return \Illuminate\Http\Response
      */
-    public function destroy(movie $movie)
+    public function destroy(movie $id)
     {
-        //
+        $movie = Movie::find($id);
+        $movie->delete();
+
+        // redirect
+        Session::flash('message', 'Successfully deleted the nerd!');
+        return Redirect::to('movies.index');
     }
 }

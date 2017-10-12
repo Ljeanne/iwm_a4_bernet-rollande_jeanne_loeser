@@ -15,7 +15,8 @@
 
 <!-- CSS files -->
 <link rel="stylesheet" href="{{asset('css/app.css')}}">
-<link rel="stylesheet" href="{{asset('css/style.css')}}">
+<link rel="stylesheet" href="{{asset('css/template.css')}}">
+<link rel="stylesheet" href="{{asset('css/templateplugins.css')}}">
 <link rel="stylesheet" href="{{asset('js/app.js')}}">
 <link rel="stylesheet" href="{{asset('js/custom.js')}}">
 <link rel="stylesheet" href="{{asset('js/jquery.js')}}">

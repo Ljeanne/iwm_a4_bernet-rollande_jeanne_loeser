@@ -41927,7 +41927,7 @@ if (false) {(function () {
     hotAPI.createRecord("data-v-07fb2c55", Component.options)
   } else {
     hotAPI.reload("data-v-07fb2c55", Component.options)
-  }
+' + '  }
   module.hot.dispose(function (data) {
     disposed = true
   })
@@ -42026,6 +42026,9 @@ module.exports = function normalizeComponent (
         ? [].concat(existing, hook)
         : [hook]
     } else {
+      // for template-only hot-reload because in that case the render fn doesn't
+      // go through the normalizer
+      options._injectStyles = hook
       // register for functioal component in vue file
       options.render = function renderWithStyleInjection (h, context) {
         hook.call(context)
@@ -42118,7 +42121,7 @@ if (false) {
 /* 40 */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed: ModuleBuildError: Module build failed: Error: dyld: Library not loaded: /usr/local/opt/libpng/lib/libpng16.16.dylib\n  Referenced from: /Users/Administrateur/Desktop/movietime/movietime/node_modules/mozjpeg/vendor/cjpeg\n  Reason: image not found\n\n    at Promise.all.then.arr (/Users/Administrateur/Desktop/movietime/movietime/node_modules/execa/index.js:231:11)\n    at process._tickCallback (internal/process/next_tick.js:109:7)\n    at runLoaders (/Users/Administrateur/Desktop/movietime/movietime/node_modules/webpack/lib/NormalModule.js:195:19)\n    at /Users/Administrateur/Desktop/movietime/movietime/node_modules/loader-runner/lib/LoaderRunner.js:364:11\n    at /Users/Administrateur/Desktop/movietime/movietime/node_modules/loader-runner/lib/LoaderRunner.js:230:18\n    at context.callback (/Users/Administrateur/Desktop/movietime/movietime/node_modules/loader-runner/lib/LoaderRunner.js:111:13)\n    at /Users/Administrateur/Desktop/movietime/movietime/node_modules/img-loader/index.js:45:31");
+throw new Error("Module build failed: ModuleBuildError: Module build failed: Error: /home/loeser/devPerso/laravel/movietime/node_modules/mozjpeg/vendor/cjpeg: error while loading shared libraries: libpng12.so.0: cannot open shared object file: No such file or directory\n\n    at Promise.all.then.arr (/home/loeser/devPerso/laravel/movietime/node_modules/execa/index.js:231:11)\n    at process._tickCallback (internal/process/next_tick.js:109:7)\n    at runLoaders (/home/loeser/devPerso/laravel/movietime/node_modules/webpack/lib/NormalModule.js:195:19)\n    at /home/loeser/devPerso/laravel/movietime/node_modules/loader-runner/lib/LoaderRunner.js:364:11\n    at /home/loeser/devPerso/laravel/movietime/node_modules/loader-runner/lib/LoaderRunner.js:230:18\n    at context.callback (/home/loeser/devPerso/laravel/movietime/node_modules/loader-runner/lib/LoaderRunner.js:111:13)\n    at /home/loeser/devPerso/laravel/movietime/node_modules/img-loader/index.js:45:31");
 
 /***/ })
 /******/ ]);
