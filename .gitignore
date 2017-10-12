@@ -43,3 +43,17 @@ Thumbs.db
 /Frontend.psd
 /css/
 /dist/
+
+/public/hot
+/public/storage
+/public/css/*
+/storage/*.key
+/vendor
+/.vagrant
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+.env
+!/public/css/template.css
+!/public/css/templateplugins.css
