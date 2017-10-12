@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Movie;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use GuzzleHttp;
@@ -19,11 +20,13 @@ class MovieController extends Controller
     {
         // Affiche la liste des films à regarder, puis la liste des films vus (Pages "Mes films")
         $user = Auth::user();
-        if ($user)
-        {
-            $movies = Movie::all();
-            return view('movie.index', compact('movies'));
-        }
+
+        $movies = Movie::all();
+        /*dd($movies);
+        dd($user->id);*/
+        //$movies = $movies->where("user_id", "=", $user->id)->get();
+
+        return view('movie.index', compact('movies'));
     }
 
     /**
