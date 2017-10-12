@@ -17,7 +17,8 @@
 <link rel="stylesheet" href="{{asset('css/app.css')}}">
 <link rel="stylesheet" href="{{asset('css/template.css')}}">
 <link rel="stylesheet" href="{{asset('css/templateplugins.css')}}">
-<link rel="stylesheet" href="{{asset('js/app.js')}}">
+<script href="{{asset('js/app.js')}}"></script>
+
 </head>
 <body>
 <!--preloading-->
