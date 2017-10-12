@@ -23,16 +23,16 @@
 </head>
 <body>
 
-<!--preloading-->
+<!--preloading
 <div id="preloader">
-    <img class="logo" src="images/logo1.png" alt="" width="119" height="58">
+    <img class="logo" src="{{ asset('images/logo1.png')}}" alt="" width="119" height="58">
     <div id="status">
         <span></span>
         <span></span>
     </div>
-</div>
+</div>-->
 <!--end of preloading-->
-<!--login form popup-->
+<!--login form popup
 <div class="login-wrapper" id="login-content">
     <div class="login-content">
         <a href="#" class="close">x</a>
@@ -71,9 +71,9 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->
 <!--end of login form popup-->
-<!--signup form popup-->
+<!--signup form popup
 <div class="login-wrapper"  id="signup-content">
     <div class="login-content">
         <a href="#" class="close">x</a>
@@ -109,7 +109,7 @@
             </div>
         </form>
     </div>
-</div>
+</div>-->
 <!--end of signup form popup-->
 
 <!-- BEGIN | Header -->
@@ -126,7 +126,7 @@
                         <span></span>
                     </div>
                 </div>
-                <a href="index.html"><img class="logo" src="images/logo1.png" alt="" width="119" height="58"></a>
+                <a href="index.html"><img class="logo" src="{{ asset("images/logo1.png") }}" alt="" width="119" height="58"></a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse flex-parent" id="bs-example-navbar-collapse-1">
@@ -224,3 +224,19 @@
     </div>
 </header>
 <!-- END | Header -->
+
+<div class="hero common-hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="hero-ct">
+                    <h1>Movie Listing - Grid Fullwidth</h1>
+                    <ul class="breadcumb">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li> <span class="ion-ios-arrow-right"></span> movie listing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

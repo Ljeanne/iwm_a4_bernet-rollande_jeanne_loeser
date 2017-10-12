@@ -1,4 +1,4 @@
-<div class="col-md-3">
+<div class="col-md-3 isolatedmovie">
     {{--
         <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{$movie->poster_path}}" class="img img-responsive" style="width: 100%">
     --}}
@@ -13,16 +13,10 @@
                 <button>TO SEE</button>
                 <button>SEEN</button>
                 <div class="social-btn">
-                    <a href="#" class="parent-btn"><i class="ion-heart"></i> Add to Favorite</a>
-                    <div class="hover-bnt">
-                        <a href="#" class="parent-btn"><i class="ion-android-share-alt"></i>share</a>
-                        <div class="hvr-item">
-                            <a href="#" class="hvr-grow"><i class="ion-social-facebook"></i></a>
-                            <a href="#" class="hvr-grow"><i class="ion-social-twitter"></i></a>
-                            <a href="#" class="hvr-grow"><i class="ion-social-googleplus"></i></a>
-                            <a href="#" class="hvr-grow"><i class="ion-social-youtube"></i></a>
-                        </div>
-                    </div>
+                    <a href="#" class="parent-btn"><i class="ion-heart"></i>I want to see this movie</a>
+                </div>
+                <div class="social-btn">
+                    <a href="#" class="parent-btn"><i class="ion-eye-disabled"></i>I have seen this movie</a>
                 </div>
             </div>
         </div>
