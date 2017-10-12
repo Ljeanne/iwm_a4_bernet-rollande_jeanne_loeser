@@ -85,17 +85,12 @@ class MovieController extends Controller
      * @param  \App\models\movie  $movie
      * @return \Illuminate\Http\Response
      */
-    public function show(movie $id)
+    public function show($id)
     {
-        $movie = Movie::find($id);
-        // Récupérer string dans l'API
         $client = new GuzzleHttp\Client();
-        $res = $client->get('https://api.themoviedb.org/3/movie/'.$id.'?api_key=14549aeb10d953e4b4868c68a1955393');
-        //echo $res->getStatusCode(); // 200
-        $movies = $res->getBody();
-        $movies = GuzzleHttp\json_decode($movies);
-        $movies = $movies->results;
-
+        $res = $client->get('https://api.themoviedb.org/3/movie/' . $id . '?api_key=14549aeb10d953e4b4868c68a1955393');
+        $movie = $res->getBody();
+        $movie = GuzzleHttp\json_decode($movie);
 
         return view('movie.show', compact('movie'));
     }
