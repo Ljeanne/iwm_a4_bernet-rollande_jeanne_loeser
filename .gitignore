@@ -56,7 +56,6 @@ npm-debug.log
 yarn-error.log
 .env
 /public/css/
-/public/images/
 /public/js/
 !/public/css/template.css
 !/public/css/templateplugins.css
