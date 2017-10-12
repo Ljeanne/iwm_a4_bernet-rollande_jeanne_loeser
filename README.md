@@ -33,3 +33,7 @@ API The movie DB:
 For create a controller, ressource and model:
 
 - php artisan make:controller (ex: PhotoController) --resource --model=(ex: )Photo)
+
+Compile scss:
+
+- npm run dev

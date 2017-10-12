@@ -22,11 +22,19 @@ class MovieController extends Controller
         $user = Auth::user();
 
         $movies = Movie::all();
+        $client = new GuzzleHttp\Client();
+        foreach ($movies as $movie){
+            $res = $client->get('https://api.themoviedb.org/3/movie/550?api_key=14549aeb10d953e4b4868c68a1955393');
+            //echo $res->getStatusCode(); // 200
+            $movie = $res->getBody();
+            $movie = GuzzleHttp\json_decode($movie);
+            $movie = $movie->results;
+        }
         /*dd($movies);
         dd($user->id);*/
         //$movies = $movies->where("user_id", "=", $user->id)->get();
 
-        return view('movie.index', compact('movies'));
+        return view('movie.index', compact('movie'));
     }
 
     /**
