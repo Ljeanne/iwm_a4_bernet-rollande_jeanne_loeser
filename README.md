@@ -30,3 +30,6 @@ For create a Middleware:
 API The movie DB:
 - https://api.themoviedb.org/discover/movie?sort_by=popularity.desc?&api_key=14549aeb10d953e4b4868c68a1955393
 
+For create a controller, ressource and model:
+
+- php artisan make:controller (ex: PhotoController) --resource --model=(ex: )Photo)

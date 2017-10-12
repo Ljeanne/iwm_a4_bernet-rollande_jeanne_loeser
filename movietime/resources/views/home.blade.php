@@ -22,7 +22,9 @@
                             <li>{{$movie->genre_ids[0]}}</li>
                             <li>{{$movie->overview}}</li>
                         </ul>
-                        <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{$movie->poster_path}}">
+                        <a href="{{route('movies.show', $movie->id)}}">
+                            <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{$movie->poster_path}}">
+                        </a>
                             <form method="POST" action="{{route('movies.store')}}">
                                 {{csrf_field()}}
                                 <input type="hidden" value="{{$movie->id}}" name="movie_id">
