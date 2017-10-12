@@ -8,12 +8,9 @@
 // Bootstrap
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
 
+// Template
 @import "style";
-
 @import "plugins";
-
-@import "movie";
 
 // Custom css
-@import "plugins";
-@import "style";
+@import "movie";
