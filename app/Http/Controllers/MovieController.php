@@ -7,6 +7,7 @@ use App\Models\Movie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use GuzzleHttp;
+use Illuminate\Support\Facades\DB;
 
 
 class MovieController extends Controller
@@ -20,21 +21,26 @@ class MovieController extends Controller
     {
         // Affiche la liste des films à regarder, puis la liste des films vus (Pages "Mes films")
         $user = Auth::user();
+        $movies = DB::table('movies')->where('user_id', '=', $user->id)->get();
 
-        $movies = Movie::all();
         $client = new GuzzleHttp\Client();
+        $moviesNotSeen = [];
+        $moviesSeen = [];
+
         foreach ($movies as $movie){
-            $res = $client->get('https://api.themoviedb.org/3/movie/550?api_key=14549aeb10d953e4b4868c68a1955393');
-            //echo $res->getStatusCode(); // 200
+            $dbMovie = $movie;
+            $res = $client->get('https://api.themoviedb.org/3/movie/' . $movie->movie_id . '?api_key=14549aeb10d953e4b4868c68a1955393');
             $movie = $res->getBody();
             $movie = GuzzleHttp\json_decode($movie);
-            $movie = $movie->results;
-        }
-        /*dd($movies);
-        dd($user->id);*/
-        //$movies = $movies->where("user_id", "=", $user->id)->get();
 
-        return view('movie.index', compact('movie'));
+            if($dbMovie->seen) {
+                $moviesSeen[] = $movie;
+            }else{
+                $moviesNotSeen[] = $movie;
+            }
+        }
+
+        return view('movie.index', ['moviesSeen' => $moviesSeen,'moviesNotSeen' => $moviesNotSeen,]);
     }
 
     /**
