@@ -16,7 +16,7 @@
                 @endif
 
                 @foreach($movies as $movie)
-                    @include('movieblock', compact($movie))
+                    @include('movieblock', compact($movie, $views))
                 @endforeach
 
             </div>

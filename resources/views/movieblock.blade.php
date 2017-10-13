@@ -10,9 +10,14 @@
                 <p>{{ substr($movie->overview, 0, 200) }} <a href="{{ URL::to('/movies/'.$movie->id) }}">(read more)</a></p>
             </div>
             <div class="btn col-md-12">
-
-                @include('forms.addmovie', ['movie' => $movie, 'seen' => 0, 'button' => 'I want to see this movie', 'picto' => 'ion-heart'])
-                @include('forms.addmovie', ['movie' => $movie, 'seen' => 1, 'button' => 'I have seen this movie', 'picto' => 'ion-eye-disabled'])
+                <?php isset($views[$movie->id]) ? $status = $views[$movie->id] : $status = -1 ?>
+                @if($status == -1)
+                    @include('forms.addmovie', ['movie' => $movie, 'seen' => 0, 'button' => 'I want to see this movie', 'picto' => 'ion-heart'])
+                    @include('forms.addmovie', ['movie' => $movie, 'seen' => 1, 'button' => 'I have seen this movie', 'picto' => 'ion-eye-disabled'])
+                @else
+                    @include('forms.editmovie', ['movie' => $movie, 'status' => $status, 'seen' => 0, 'button' => 'I want to see this movie', 'picto' => 'ion-heart'])
+                    @include('forms.editmovie', ['movie' => $movie, 'seen' => 1, 'button' => 'I have seen this movie', 'picto' => 'ion-eye-disabled'])
+                @endif
             </div>
         </div>
     </div>
