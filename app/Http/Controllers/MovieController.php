@@ -131,7 +131,10 @@ class MovieController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $movie = Movie::find($id);
+        //$id = $request->id;
+        $movie = Movie::where('user_id', Auth::user()->id)
+            ->where('movie_id', $request->movie_id)
+            ->first();
         $movie->update($request->all());
 
         return redirect()->back();

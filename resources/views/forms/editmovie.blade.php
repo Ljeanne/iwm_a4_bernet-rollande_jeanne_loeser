@@ -1,9 +1,13 @@
-<form method="POST" action="{{route('movies.update', $movie['dbMovie']->id)}}">
+@php
+ if (is_array($movie)) { $m = $movie['movie']; } else { $m = $movie;}
+@endphp
+
+<form method="POST" action="{{route('movies.update', 1)}}">
     {{csrf_field()}}
     <input type="hidden" name="_method" value="PUT">
-    <input type="hidden" value="{{$movie['movie']->id}}" name="movie_id">
+    <input type="hidden" value="{{ $m->id}}" name="movie_id">
     <input type="hidden" value="{{$seen}}" name="seen">
-    <input type="hidden" value="{{$movie['movie']->genres[0]->id}}" name="category">
+    <input type="hidden" value="{{ isset($m->genres[0]) ? $m->genres[0]->id : 1 }}" name="category">
     <button type="submit" class="btn btn-primary" value="Send"><i class="{{$picto}}"></i>{{$button}}</button>
 </form>
 {{--
