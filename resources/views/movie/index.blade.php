@@ -46,7 +46,7 @@
                                 </div>
                                 <div class="btn col-md-12">
 
-                                    @include('forms.editmovie', ['movie' => $movie, 'seen' => 0, 'button' => 'I want to see this movie', 'picto' => 'ion-heart']))
+                                    @include('forms.editmovie', ['movie' => $movie, 'seen' => 0, 'button' => 'I want to see this movie', 'picto' => 'ion-heart'])
                                 </div>
                             </div>
                         </div>
