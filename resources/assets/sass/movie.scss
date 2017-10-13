@@ -1,3 +1,10 @@
+.page-single {
+  color: white;
+  .flex-wrap-movielist {
+    margin-top: 30px;
+  }
+}
+
 
 .movieblock {
   width: 100%;
@@ -10,6 +17,9 @@
   height: 100%;
   background: rgba(0,0,0,0.7);
   color: white;
+  transition-duration: 1s;
+  position: absolute;
+  bottom:0;
 
   .infos {
     padding-top: 20px;
@@ -37,7 +47,7 @@
   .social-btn a.parent-btn {
     font-family: 'Dosis', sans-serif;
     font-size: 14px;
-    color: #dd003f;
+    color: #22dd85;
     font-weight: bold;
     text-transform: uppercase;
     margin-right: 35px;
