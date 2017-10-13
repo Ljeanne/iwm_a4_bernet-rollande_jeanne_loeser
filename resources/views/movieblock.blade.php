@@ -11,7 +11,7 @@
             </div>
             <div class="btn col-md-12">
 
-                @include('forms.addmovie', ['movie' => $movie, 'seen' => 0, 'button' => 'I want to see this movie', 'picto' => 'ion-heart']))
+                @include('forms.addmovie', ['movie' => $movie, 'seen' => 0, 'button' => 'I want to see this movie', 'picto' => 'ion-heart'])
                 @include('forms.addmovie', ['movie' => $movie, 'seen' => 1, 'button' => 'I have seen this movie', 'picto' => 'ion-eye-disabled'])
             </div>
         </div>

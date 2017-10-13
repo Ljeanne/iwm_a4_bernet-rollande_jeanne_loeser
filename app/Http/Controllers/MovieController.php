@@ -29,7 +29,7 @@ class MovieController extends Controller
 
         foreach ($movies as $movie){
             $dbMovie = $movie;
-            $res = $client->get('https://api.themoviedb.org/3/movie/' . $movie->movie_id . '?api_key=14549aeb10d953e4b4868c68a1955393');
+            $res = $client->get('http://api.themoviedb.org/3/movie/' . $movie->movie_id . '?api_key=14549aeb10d953e4b4868c68a1955393');
             $movie = $res->getBody();
             $movie = GuzzleHttp\json_decode($movie);
 
@@ -77,9 +77,12 @@ class MovieController extends Controller
         $existingMovie = Movie::where('user_id', Auth::user()->id)
             ->where('movie_id', $request->movie_id)
             ->first();
-        return count($existingMovie);
         if (count($existingMovie) > 0 ) {
-            $this->update($request, $existingMovie->id);
+            //$existingMovie = Movie::find($id);
+            $existingMovie->update($request->all());
+
+            //return redirect()->back();
+            return 'The entry was edited';
         } else {
             Movie::create([
                 'user_id' => Auth::user()->id,
@@ -131,7 +134,6 @@ class MovieController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return 'Editing';
         $movie = Movie::find($id);
         $movie->update($request->all());
 

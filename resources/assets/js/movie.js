@@ -42,13 +42,13 @@ $( document ).ready(function() {
         e.preventDefault();
         var form = $('#seen'+$(this).data('movie'));
         console.log('#seen'+$(this).data('movie'));
-        console.log(form.attr('action'));
+        //console.log(form.attr('action'));
         $.ajax({
             type: "POST",
             url: form.attr('action'),
             data: form.serialize(),
             success: function( data ) {
-                console.log( 'Seen added' );
+                //console.log( 'Seen added' );
                 console.log( data );
             }
         });

@@ -23,7 +23,7 @@
 
   .infos {
     padding-top: 20px;
-    height: 390px;
+    height: 375px;
     h3 {
       height:100px;
     }
@@ -47,10 +47,16 @@
   .social-btn a.parent-btn {
     font-family: 'Dosis', sans-serif;
     font-size: 14px;
-    color: #22dd85;
+    color: #FFF;
     font-weight: bold;
     text-transform: uppercase;
     margin-right: 35px;
+    &:hover {
+      color: #dd003f;
+    }
+  }
+  .social-btn a.parent-btn.active {
+    color: #dd003f;
   }
 
 }
