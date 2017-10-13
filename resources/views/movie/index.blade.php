@@ -1,59 +1,53 @@
-@extends('layouts.app')
+@extends('template.app')
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-sm-12 panel">
-                <h1>To do list</h1>
-                <div>
-                    <h2>Liste des films non vues</h2>
-                    @foreach($moviesNotSeen as $movie)
-                        <ul>
-                            <li>{{$movie['movie']->id}}</li>
-                            <li>{{$movie['movie']->title}}</li>
-                            <li>{{$movie['movie']->release_date}}</li>
-                            <li>{{$movie['movie']->overview}}</li>
+            <h2>Liste des films non vues</h2>
+            @foreach($moviesNotSeen as $movie)
+                <div class="col-md-3 isolatedmovie">
+                    {{--
+                        <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{$movie->poster_path}}" class="img img-responsive" style="width: 100%">
+                    --}}
+                    <div class="movieblock col-md-12" style="background-image: url('https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{$movie['movie']->poster_path}}');background-size:cover" data-id="{{ $movie['movie']->id }}">
+                        <div class="movieinfo row movieinfo{{ $movie['movie']->id }}" style="opacity: 0;height: 0;">
+                            <div class="infos col-md-12">
+                                <h3>{{$movie['movie']->title}}</h3>
+                                <p class="released_date">Released {{$movie['movie']->release_date}}</p>
+                                <p>{{ substr($movie['movie']->overview, 0, 200) }} <a href="">(read more)</a></p>
+                            </div>
+                            <div class="btn col-md-12">
 
-                            <li>Cool</li>
-                        </ul>
-                        <a href="{{route('movies.show', $movie['movie']->id)}}">
-                            <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{$movie['movie']->poster_path}}">
-                        </a>
-                        <form method="POST" action="{{route('movies.update', $movie['dbMovie']->id)}}">
-                            {{csrf_field()}}
-                            <input type="hidden" name="_method" value="PUT">
-                            <input type="hidden" value="{{$movie['movie']->id}}" name="movie_id">
-                            <input type="hidden" value="1" name="seen">
-                            <input type="hidden" value="{{$movie['movie']->genres[0]->id}}" name="category">
-                            <button type="submit" class="btn btn-primary" value="Send">Déja vu</button>
-                        </form>
-                    @endforeach
+                                @include('forms.editmovie', ['movie' => $movie, 'seen' => 1, 'button' => 'I have seen this movie', 'picto' => 'ion-eye-disabled'])
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <h2>Liste des films vues</h2>
-                    @foreach($moviesSeen as $movie)
-                        <ul>
+            @endforeach
+        </div>
+        <div class="row">
+            <div>
+                <h2>Liste des films vues</h2>
+                @foreach($moviesSeen as $movie)
+                    <div class="col-md-3 isolatedmovie">
+                        {{--
+                            <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{$movie->poster_path}}" class="img img-responsive" style="width: 100%">
+                        --}}
+                        <div class="movieblock col-md-12" style="background-image: url('https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{$movie['movie']->poster_path}}');background-size:cover" data-id="{{ $movie['movie']->id }}">
+                            <div class="movieinfo row movieinfo{{ $movie['movie']->id }}" style="opacity: 0;height: 0;">
+                                <div class="infos col-md-12">
+                                    <h3>{{$movie['movie']->title}}</h3>
+                                    <p class="released_date">Released {{$movie['movie']->release_date}}</p>
+                                    <p>{{ substr($movie['movie']->overview, 0, 200) }} <a href="">(read more)</a></p>
+                                </div>
+                                <div class="btn col-md-12">
 
-                            <li>{{$movie["movie"]->id}}</li>
-                            <li>{{$movie["movie"]->title}}</li>
-                            <li>{{$movie["movie"]->release_date}}</li>
-                            <li>{{$movie["movie"]->overview}}</li>
-                            <li>Cool</li>
+                                    @include('forms.editmovie', ['movie' => $movie, 'seen' => 0, 'button' => 'I want to see this movie', 'picto' => 'ion-heart']))
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                        </ul>
-                        <a href="{{route('movies.show', $movie["movie"]->id)}}">
-                            <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{$movie["movie"]->poster_path}}">
-                        </a>
-
-                        <form method="POST" action="{{route('movies.update', $movie["dbMovie"]->id)}}">
-                            {{csrf_field()}}
-                            <input type="hidden" name="_method" value="PUT">
-                            <input type="hidden" value="{{$movie["movie"]->id}}" name="movie_id">
-                            <input type="hidden" value="0" name="seen">
-                            <input type="hidden" value="{{$movie["movie"]->genres[0]->id}}" name="category">
-                            <button type="submit" class="btn btn-primary" value="Send">Ajouter à ma liste non vue</button>
-                        </form>
-                    @endforeach
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
