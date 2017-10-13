@@ -77,9 +77,12 @@ class MovieController extends Controller
         $existingMovie = Movie::where('user_id', Auth::user()->id)
             ->where('movie_id', $request->movie_id)
             ->first();
-        return count($existingMovie);
         if (count($existingMovie) > 0 ) {
-            $this->update($request, $existingMovie->id);
+            //$existingMovie = Movie::find($id);
+            $existingMovie->update($request->all());
+
+            //return redirect()->back();
+            return 'The entry was edited';
         } else {
             Movie::create([
                 'user_id' => Auth::user()->id,

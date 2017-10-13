@@ -51,9 +51,12 @@
     font-weight: bold;
     text-transform: uppercase;
     margin-right: 35px;
+    &:hover {
+      color: #dd003f;
+    }
   }
   .social-btn a.parent-btn.active {
-    color: rgba(173, 0, 167, 0.48);
+    color: #dd003f;
   }
 
 }
