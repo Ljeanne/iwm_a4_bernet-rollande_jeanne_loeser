@@ -2,8 +2,8 @@
     {{--
         <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{$movie->poster_path}}" class="img img-responsive" style="width: 100%">
     --}}
-    <div class="movieblock col-md-12" style="background-image: url('https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{$movie->poster_path}}');background-size:cover">
-        <div class="movieinfo row">
+    <div class="movieblock col-md-12" style="background-image: url('https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{$movie->poster_path}}');background-size:cover" data-id="{{ $movie->id }}">
+        <div class="movieinfo row movieinfo{{ $movie->id }}" style="opacity: 0;height: 0;">
             <div class="infos col-md-12">
                 <h3>{{$movie->title}}</h3>
                 <p class="released_date">Released {{$movie->release_date}}</p>
