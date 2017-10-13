@@ -20,6 +20,15 @@ class Movie extends Model
      *
      * @var array
      */
+    protected $cast = [
+        'favorite' => 'boolean',
+    ];
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = [
         'user_id', 'movie_id', 'category', 'seen'
     ];
