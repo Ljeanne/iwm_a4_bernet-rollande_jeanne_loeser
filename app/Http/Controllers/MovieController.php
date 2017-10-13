@@ -34,12 +34,11 @@ class MovieController extends Controller
             $movie = GuzzleHttp\json_decode($movie);
 
             if($dbMovie->seen) {
-                $moviesSeen[] = $movie;
+                $moviesSeen[] = ['movie' => $movie, 'dbMovie' => $dbMovie];
             }else{
-                $moviesNotSeen[] = $movie;
+                $moviesNotSeen[] = ['movie' => $movie, 'dbMovie' => $dbMovie];
             }
         }
-
         return view('movie.index', ['moviesSeen' => $moviesSeen,'moviesNotSeen' => $moviesNotSeen,]);
     }
 
@@ -74,6 +73,7 @@ class MovieController extends Controller
             'movie_id' => $request->movie_id,
             'category' => $request->category,
             'seen' => $request->seen,
+            'favorite' => $request->favorite
         ]);
 
         return redirect()->route('home');
@@ -113,9 +113,12 @@ class MovieController extends Controller
      * @param  \App\models\movie  $movie
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, movie $movie)
+    public function update(Request $request, $id)
     {
-        //
+        $movie = Movie::find($id);
+        $movie->update($request->all());
+
+        return redirect()->back();
     }
 
     /**
