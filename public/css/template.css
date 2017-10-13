@@ -4032,6 +4032,7 @@ ul {
     text-transform: none;
     margin-bottom: 25px;
 }
+
 .bd-hd span {
     font-family: 'Dosis', sans-serif;
     font-size: 24px;
@@ -5659,7 +5660,7 @@ ul {
 /*movie single hero*/
 .mv-single-hero {
     background: url('../images/uploads/hero-bg.jpg') no-repeat;
-    height: 300px;
+    height: 598px;
 }
 /*series single hero*/
 .sr-single-hero {
@@ -8168,7 +8169,6 @@ footer .flex-parent-ft {
 }
 footer .flex-parent-ft .flex-child-ft img {
     margin-bottom: 60px;
-    width: 170px;
 }
 footer .flex-parent-ft .flex-child-ft p {
     margin-bottom: 15px;
@@ -8284,4 +8284,10 @@ footer.full-width-ft .ft-copyright {
     color: #8c9296;
     font-family: 'Dosis', sans-serif;
     font-weight: 700;
+}
+.mv-user-review-item {
+    display: none;
+}
+.title-hd-sm {
+    display: none;
 }
