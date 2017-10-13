@@ -1,5 +1,9 @@
 @extends('template.app')
 
+@section('title')
+    Profil
+@endsection
+
 @section('content')
 
     <!--preloading-->

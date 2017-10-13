@@ -1,5 +1,9 @@
 @extends('template.app')
 
+@section('title')
+    Search
+@endsection
+
 @section('content')
 
     <div class="row">

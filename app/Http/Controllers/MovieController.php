@@ -71,16 +71,26 @@ class MovieController extends Controller
         );
 
         if (!Auth::user()) {
-            return "Vous n'êtes pas connecté";
+            return "You have to be logged to use that feature.";
         }
 
-        Movie::create([
-            'user_id' => Auth::user()->id,
-            'movie_id' => $request->movie_id,
-            'category' => $request->category,
-            'seen' => $request->seen,
-            'favorite' => $request->favorite
-        ]);
+        $existingMovie = Movie::where('user_id', Auth::user()->id)
+            ->where('movie_id', $request->movie_id)
+            ->first();
+        return count($existingMovie);
+        if (count($existingMovie) > 0 ) {
+            $this->update($request, $existingMovie->id);
+        } else {
+            Movie::create([
+                'user_id' => Auth::user()->id,
+                'movie_id' => $request->movie_id,
+                'category' => $request->category,
+                'seen' => $request->seen,
+                'favorite' => $request->favorite
+            ]);
+        }
+
+
 
         return redirect()->route('home');
     }
@@ -94,7 +104,7 @@ class MovieController extends Controller
     public function show($id)
     {
         $client = new GuzzleHttp\Client();
-        $res = $client->get('https://api.themoviedb.org/3/movie/' . $id . '?api_key=14549aeb10d953e4b4868c68a1955393');
+        $res = $client->get('http://api.themoviedb.org/3/movie/' . $id . '?api_key=14549aeb10d953e4b4868c68a1955393');
         $movie = $res->getBody();
         $movie = GuzzleHttp\json_decode($movie);
 
@@ -121,6 +131,7 @@ class MovieController extends Controller
      */
     public function update(Request $request, $id)
     {
+        return 'Editing';
         $movie = Movie::find($id);
         $movie->update($request->all());
 
