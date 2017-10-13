@@ -15828,7 +15828,7 @@ footer.full-width-ft .ft-copyright {
   bottom: 0; }
   .movieinfo .infos {
     padding-top: 20px;
-    height: 390px; }
+    height: 375px; }
     .movieinfo .infos h3 {
       height: 100px; }
     .movieinfo .infos .released_date {
@@ -15846,10 +15846,14 @@ footer.full-width-ft .ft-copyright {
   .movieinfo .social-btn a.parent-btn {
     font-family: 'Dosis', sans-serif;
     font-size: 14px;
-    color: #22dd85;
+    color: #FFF;
     font-weight: bold;
     text-transform: uppercase;
     margin-right: 35px; }
+    .movieinfo .social-btn a.parent-btn:hover {
+      color: #dd003f; }
+  .movieinfo .social-btn a.parent-btn.active {
+    color: #dd003f; }
 
 .menu-left a {
   border: none;
