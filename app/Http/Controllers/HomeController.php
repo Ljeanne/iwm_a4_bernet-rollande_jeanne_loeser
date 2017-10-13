@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Movie;
 use Illuminate\Http\Request;
 use GuzzleHttp;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -33,6 +35,17 @@ class HomeController extends Controller
         $movies = $res->getBody();
         $movies = GuzzleHttp\json_decode($movies);
         $movies = $movies->results;
+
+        if (Auth::user()->id) {
+            $knownmovies = Movie::where('user_id', Auth::user()->id)
+                ->get();
+            
+            foreach ($knownmovies as $movie) {
+                if ($movie->seen) {
+
+                }
+            }
+        }
 
         //dd($movies);
         return view('home', ['movies' => $movies]);
