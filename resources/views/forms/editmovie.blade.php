@@ -6,3 +6,10 @@
     <input type="hidden" value="{{$movie['movie']->genres[0]->id}}" name="category">
     <button type="submit" class="btn btn-primary" value="Send"><i class="{{$picto}}"></i>{{$button}}</button>
 </form>
+{{--
+@if($movie->favorite == 1)
+    @include('forms.favorite', ['movie' => $movie['dbMovie'], 'favorite' => 0, 'button' => 'Empty to favorite', 'picto' => 'ion-star-empty']))
+@else
+    @include('forms.favorite', ['movie' => $movie['dbMovie'], 'favorite' => 1, 'button' => 'Add to favorite', 'picto' => 'ion-star']))
+@endif
+--}}
