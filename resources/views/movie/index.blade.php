@@ -18,10 +18,10 @@
                         <a href="{{route('movies.show', $movie['movie']->id)}}">
                             <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{$movie['movie']->poster_path}}">
                         </a>
-                        <form method="POST" action="{{route('movies.update', $movie['movie']->id)}}">
+                        <form method="POST" action="{{route('movies.update', $movie['dbMovie']->id)}}">
                             {{csrf_field()}}
                             <input type="hidden" name="_method" value="PUT">
-                            <input type="hidden" value="{{$movie['dbMovie']->id}}" name="movie_id">
+                            <input type="hidden" value="{{$movie['movie']->id}}" name="movie_id">
                             <input type="hidden" value="1" name="seen">
                             <input type="hidden" value="{{$movie['movie']->genres[0]->id}}" name="category">
                             <button type="submit" class="btn btn-primary" value="Send">Déja vu</button>
@@ -44,10 +44,10 @@
                             <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{$movie["movie"]->poster_path}}">
                         </a>
 
-                        <form method="POST" action="{{route('movies.update', $movie["movie"]->id)}}">
+                        <form method="POST" action="{{route('movies.update', $movie["dbMovie"]->id)}}">
                             {{csrf_field()}}
                             <input type="hidden" name="_method" value="PUT">
-                            <input type="hidden" value="{{$movie["dbMovie"]->id}}" name="movie_id">
+                            <input type="hidden" value="{{$movie["movie"]->id}}" name="movie_id">
                             <input type="hidden" value="0" name="seen">
                             <input type="hidden" value="{{$movie["movie"]->genres[0]->id}}" name="category">
                             <button type="submit" class="btn btn-primary" value="Send">Ajouter à ma liste non vue</button>
