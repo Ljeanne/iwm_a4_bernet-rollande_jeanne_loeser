@@ -71,16 +71,26 @@ class MovieController extends Controller
         );
 
         if (!Auth::user()) {
-            return "Vous n'êtes pas connecté";
+            return "You have to be logged to use that feature.";
         }
 
-        Movie::create([
-            'user_id' => Auth::user()->id,
-            'movie_id' => $request->movie_id,
-            'category' => $request->category,
-            'seen' => $request->seen,
-            'favorite' => $request->favorite
-        ]);
+        $existingMovie = Movie::where('user_id', Auth::user()->id)
+            ->where('movie_id', $request->movie_id)
+            ->first();
+        return count($existingMovie);
+        if (count($existingMovie) > 0 ) {
+            $this->update($request, $existingMovie->id);
+        } else {
+            Movie::create([
+                'user_id' => Auth::user()->id,
+                'movie_id' => $request->movie_id,
+                'category' => $request->category,
+                'seen' => $request->seen,
+                'favorite' => $request->favorite
+            ]);
+        }
+
+
 
         return redirect()->route('home');
     }
@@ -121,6 +131,7 @@ class MovieController extends Controller
      */
     public function update(Request $request, $id)
     {
+        return 'Editing';
         $movie = Movie::find($id);
         $movie->update($request->all());
 

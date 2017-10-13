@@ -58,7 +58,9 @@ $( document ).ready(function() {
 
     // Search bar
     $('#searchbar').on('keypress', function (e) {
-        window.location.replace($(this).data('path')+'/'+$(this).val());
-
+    console.log(e.keyCode );
+        if(e.keyCode  === 13 && $(this).val()){
+            window.location.replace($(this).data('path')+'/'+$(this).val());
+        }
     });
 });
