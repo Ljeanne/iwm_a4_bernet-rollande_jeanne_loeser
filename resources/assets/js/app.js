@@ -26,8 +26,3 @@ Vue.component('example', require('./components/Example.vue'));
 const app = new Vue({
     el: '#app'
 });
-window.onload = function () {
-    const app = new Vue({
-        el: '#app'
-    });
-};
