@@ -6,7 +6,9 @@
                 <h1>To do list</h1>
                 <div>
                     <h2>Liste des films non vues</h2>
-
+                    @component('alert', ['foo' => 'bar'])
+                        ...
+                    @endcomponent
                     @foreach($moviesNotSeen as $movie)
                         <ul>
                             <li>{{$movie->id}}</li>

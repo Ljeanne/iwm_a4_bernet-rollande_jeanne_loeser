@@ -11,24 +11,9 @@
   <div class="page-single movie-single movie_single">
     <div class="container">
       <div class="row ipad-width2">
-        <div class="col-md-4 col-sm-12 col-xs-12">
-          <div class="movie-img sticky-sb">
-            <img src="images/uploads/movie-single.jpg" alt="">
-            <div class="movie-btn">
-              <div class="btn-transform transform-vertical red">
-                <div><a href="#" class="item item-1 redbtn"> <i class="ion-play"></i> Watch Trailer</a></div>
-                <div><a href="https://www.youtube.com/embed/o-0hcF97wy0" class="item item-2 redbtn fancybox-media hvr-grow"><i class="ion-play"></i></a></div>
-              </div>
-              <div class="btn-transform transform-vertical">
-                <div><a href="#" class="item item-1 yellowbtn"> <i class="ion-card"></i> Buy ticket</a></div>
-                <div><a href="#" class="item item-2 yellowbtn"><i class="ion-card"></i></a></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-8 col-sm-12 col-xs-12">
+        <div class="col-md-12 col-sm-12 col-xs-12">
           <div class="movie-single-ct main-content">
-            <h1 class="bd-hd">Skyfall: Quantum of Spectre <span>2015</span></h1>
+            <h1 class="bd-hd">{{$movie->title}} <span> {{$movie->release_date}}</span></h1>
             <div class="social-btn">
               <a href="#" class="parent-btn"><i class="ion-heart"></i> Add to Favorite</a>
               <div class="hover-bnt">
@@ -44,113 +29,31 @@
             <div class="movie-rate">
               <div class="rate">
                 <i class="ion-android-star"></i>
-                <p><span>8.1</span> /10<br>
-                  <span class="rv">56 Reviews</span>
+                <p><span>{{$movie->vote_average}}</span> /10<br>
+                  <span class="rv">{{$movie->vote_count}} Reviews</span>
                 </p>
               </div>
               <div class="rate-star">
-                <p>Rate This Movie:  </p>
-                <i class="ion-ios-star"></i>
-                <i class="ion-ios-star"></i>
-                <i class="ion-ios-star"></i>
-                <i class="ion-ios-star"></i>
-                <i class="ion-ios-star"></i>
-                <i class="ion-ios-star"></i>
-                <i class="ion-ios-star"></i>
-                <i class="ion-ios-star"></i>
-                <i class="ion-ios-star-outline"></i>
+                <p>Popularity: {{$movie->popularity}}</p>
               </div>
             </div>
             <div class="movie-tabs">
               <div class="tabs">
                 <ul class="tab-links tabs-mv">
-                  <li class="active"><a href="#overview">Overview</a></li>
-                  <li><a href="#reviews"> Reviews</a></li>
-                  <li><a href="#cast">  Cast & Crew </a></li>
-                  <li><a href="#media"> Media</a></li>
                   <li><a href="#moviesrelated"> Related Movies</a></li>
                 </ul>
                 <div class="tab-content">
                   <div id="overview" class="tab active">
                     <div class="row">
                       <div class="col-md-8 col-sm-12 col-xs-12">
-                        <p>Tony Stark creates the Ultron Program to protect the world, but when the peacekeeping program becomes hostile, The Avengers go into action to try and defeat a virtually impossible enemy together. Earth's mightiest heroes must come together once again to protect the world from global extinction.</p>
-                        <div class="title-hd-sm">
-                          <h4>Videos & Photos</h4>
-                          <a href="#" class="time">All 5 Videos & 245 Photos <i class="ion-ios-arrow-right"></i></a>
-                        </div>
+                        <p>{{$movie->overview}}</p>
                         <div class="mvsingle-item ov-item">
-                          <a class="img-lightbox"  data-fancybox-group="gallery" href="images/uploads/image11.jpg" ><img src="images/uploads/image1.jpg" alt=""></a>
-                          <a class="img-lightbox"  data-fancybox-group="gallery" href="images/uploads/image21.jpg" ><img src="images/uploads/image2.jpg" alt=""></a>
-                          <a class="img-lightbox"  data-fancybox-group="gallery" href="images/uploads/image31.jpg" ><img src="images/uploads/image3.jpg" alt=""></a>
+                          <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{$movie->poster_path}}" width="250px">
                           <div class="vd-it">
-                            <img class="vd-img" src="images/uploads/image4.jpg" alt="">
-                            <a class="fancybox-media hvr-grow" href="https://www.youtube.com/embed/o-0hcF97wy0"><img src="images/uploads/play-vd.png" alt=""></a>
+                            <img class="vd-img" src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{$movie->backdrop_path}}" width="250px" alt="">
                           </div>
                         </div>
-                        <div class="title-hd-sm">
-                          <h4>cast</h4>
-                          <a href="#" class="time">Full Cast & Crew  <i class="ion-ios-arrow-right"></i></a>
-                        </div>
-                        <!-- movie cast -->
-                        <div class="mvcast-item">
-                          <div class="cast-it">
-                            <div class="cast-left">
-                              <img src="images/uploads/cast1.jpg" alt="">
-                              <a href="#">Robert Downey Jr.</a>
-                            </div>
-                            <p>...  Robert Downey Jr.</p>
-                          </div>
-                          <div class="cast-it">
-                            <div class="cast-left">
-                              <img src="images/uploads/cast2.jpg" alt="">
-                              <a href="#">Chris Hemsworth</a>
-                            </div>
-                            <p>...  Thor</p>
-                          </div>
-                          <div class="cast-it">
-                            <div class="cast-left">
-                              <img src="images/uploads/cast3.jpg" alt="">
-                              <a href="#">Mark Ruffalo</a>
-                            </div>
-                            <p>...  Bruce Banner/ Hulk</p>
-                          </div>
-                          <div class="cast-it">
-                            <div class="cast-left">
-                              <img src="images/uploads/cast4.jpg" alt="">
-                              <a href="#">Chris Evans</a>
-                            </div>
-                            <p>...  Steve Rogers/ Captain America</p>
-                          </div>
-                          <div class="cast-it">
-                            <div class="cast-left">
-                              <img src="images/uploads/cast5.jpg" alt="">
-                              <a href="#">Scarlett Johansson</a>
-                            </div>
-                            <p>...  Natasha Romanoff/ Black Widow</p>
-                          </div>
-                          <div class="cast-it">
-                            <div class="cast-left">
-                              <img src="images/uploads/cast6.jpg" alt="">
-                              <a href="#">Jeremy Renner</a>
-                            </div>
-                            <p>...  Clint Barton/ Hawkeye</p>
-                          </div>
-                          <div class="cast-it">
-                            <div class="cast-left">
-                              <img src="images/uploads/cast7.jpg" alt="">
-                              <a href="#">James Spader</a>
-                            </div>
-                            <p>...  Ultron</p>
-                          </div>
-                          <div class="cast-it">
-                            <div class="cast-left">
-                              <img src="images/uploads/cast9.jpg" alt="">
-                              <a href="#">Don Cheadle</a>
-                            </div>
-                            <p>...  James Rhodes/ War Machine</p>
-                          </div>
-                        </div>
+
                         <div class="title-hd-sm">
                           <h4>User reviews</h4>
                           <a href="#" class="time">See All 56 Reviews <i class="ion-ios-arrow-right"></i></a>
@@ -191,7 +94,11 @@
                         </div>
                         <div class="sb-it">
                           <h6>Genres:</h6>
-                          <p><a href="#">Action, </a> <a href="#"> Sci-Fi,</a> <a href="#">Adventure</a></p>
+                          <p>
+                            @foreach ($movie->genres as $genre)
+                              <a href="https://api.themoviedb.org/3/genre/{{$genre->id}}/movies?api_key=14549aeb10d953e4b4868c68a1955393&language=en-US&include_adult=false&sort_by=created_at.asc">{{$genre->name}}, </a>
+                            @endforeach
+                          </p>
                         </div>
                         <div class="sb-it">
                           <h6>Release Date:</h6>
