@@ -8168,6 +8168,7 @@ footer .flex-parent-ft {
 }
 footer .flex-parent-ft .flex-child-ft img {
     margin-bottom: 60px;
+    width: 170px;
 }
 footer .flex-parent-ft .flex-child-ft p {
     margin-bottom: 15px;

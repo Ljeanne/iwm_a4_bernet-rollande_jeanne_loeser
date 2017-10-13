@@ -47,7 +47,7 @@
     </div>
     <div class="ft-copyright">
         <div class="ft-left">
-            <p>© 2017 Blockbuster. All Rights Reserved. Designed by leehari.</p>
+            <p>© 2017 Blockbuster. All Rights Reserved.</p>
         </div>
         <div class="backtotop">
             <p><a href="#" id="back-to-top">Back to top  <i class="ion-ios-arrow-thin-up"></i></a></p>
