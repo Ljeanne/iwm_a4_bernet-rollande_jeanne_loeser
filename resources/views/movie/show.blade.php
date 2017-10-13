@@ -87,15 +87,11 @@
                       <div class="col-md-4 col-xs-12 col-sm-12">
                         <div class="sb-it">
                           <h6>Director: </h6>
-                          <p><a href="#">Joss Whedon</a></p>
-                        </div>
-                        <div class="sb-it">
-                          <h6>Writer: </h6>
-                          <p><a href="#">Joss Whedon,</a> <a href="#">Stan Lee</a></p>
-                        </div>
-                        <div class="sb-it">
-                          <h6>Stars: </h6>
-                          <p><a href="#">Robert Downey Jr,</a> <a href="#">Chris Evans,</a> <a href="#">Mark Ruffalo,</a><a href="#"> Scarlett Johansson</a></p>
+                          <p>
+                            @foreach ($movie->production_companies as $production_companies)
+                              <a href="https://api.themoviedb.org/3/production_companies/{{$production_companies->id}}/movies?api_key=14549aeb10d953e4b4868c68a1955393&language=en-US&include_adult=false&sort_by=created_at.asc">{{$production_companies->name}}, </a>
+                            @endforeach
+                          </p>
                         </div>
                         <div class="sb-it">
                           <h6>Genres:</h6>
@@ -103,28 +99,6 @@
                             @foreach ($movie->genres as $genre)
                               <a href="https://api.themoviedb.org/3/genre/{{$genre->id}}/movies?api_key=14549aeb10d953e4b4868c68a1955393&language=en-US&include_adult=false&sort_by=created_at.asc">{{$genre->name}}, </a>
                             @endforeach
-                          </p>
-                        </div>
-                        <div class="sb-it">
-                          <h6>Release Date:</h6>
-                          <p>May 1, 2015 (U.S.A)</p>
-                        </div>
-                        <div class="sb-it">
-                          <h6>Run Time:</h6>
-                          <p>141 min</p>
-                        </div>
-                        <div class="sb-it">
-                          <h6>MMPA Rating:</h6>
-                          <p>PG-13</p>
-                        </div>
-                        <div class="sb-it">
-                          <h6>Plot Keywords:</h6>
-                          <p class="tags">
-                            <span class="time"><a href="#">superhero</a></span>
-                            <span class="time"><a href="#">marvel universe</a></span>
-                            <span class="time"><a href="#">comic</a></span>
-                            <span class="time"><a href="#">blockbuster</a></span>
-                            <span class="time"><a href="#">final battle</a></span>
                           </p>
                         </div>
                         <div class="ads">
