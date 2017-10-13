@@ -47,51 +47,26 @@
                         <span></span>
                     </div>
                 </div>
-                <a href="/"><img class="logo" src="{{ asset("images/logo1.png") }}" alt="" width="119" height="58"></a>
+                <a href="{{ route('home') }}"><img class="logo" src="{{ asset("images/logo1.png") }}" alt="" width="119" height="58"></a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse flex-parent" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav flex-child-menu menu-left">
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li class="dropdown first">
-                        <a class="btn btn-default lv1" data-toggle="dropdown" href="{{ route('home') }}">
-                            Home <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    <li class="first">
+                        <a class="btn btn-default"  href="{{ route('home') }}">
+                            Home
                         </a>
                     </li>
                     <li class="dropdown first">
-                        <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
-                            movies<i class="fa fa-angle-down" aria-hidden="true"></i>
+                        <a class="btn btn-default lv1" href="{{ route('movies.index') }}">
+                            My movies
                         </a>
-                        <ul class="dropdown-menu level1">
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Movie grid<i class="ion-ios-arrow-forward"></i></a>
-                                <ul class="dropdown-menu level2">
-                                    <li><a href="moviegrid.html">Movie grid</a></li>
-                                    <li><a href="moviegridfw.html">movie grid full width</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="movielist.html">Movie list</a></li>
-                            <li><a href="moviesingle.html">Movie single</a></li>
-                            <li class="it-last"><a href="seriessingle.html">Series single</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown first">
-                        <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
-                            news <i class="fa fa-angle-down" aria-hidden="true"></i>
-                        </a>
-                        <ul class="dropdown-menu level1">
-                            <li><a href="bloglist.html">blog List</a></li>
-                            <li><a href="bloggrid.html">blog Grid</a></li>
-                            <li class="it-last"><a href="blogdetail.html">blog Detail</a></li>
-                        </ul>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav flex-child-menu menu-right">
                     @guest
                         <li class="loginLink"><a href="{{ route('login') }}">LOG IN</a></li>
-                        <li class="btn signupLink"><a href="{{ route('register') }}">sign up</a></li>
+                        <li class="btn signupLink"><a href="{{ route('register') }}">Sign up</a></li>
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -131,10 +106,10 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="hero-ct">
-                    <h1>Movie Listing</h1>
+                    <h1>Movie Time</h1>
                     <ul class="breadcumb">
                         <li class="active"><a href="#">Home</a></li>
-                        <li> <span class="ion-ios-arrow-right"></span> movie listing</li>
+                        <li> <span class="ion-ios-arrow-right"></span> @yield('title')</li>
                     </ul>
                 </div>
             </div>

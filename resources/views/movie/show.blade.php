@@ -1,4 +1,9 @@
 @extends('template.app')
+
+@section('title')
+  Movie <span class="ion-ios-arrow-right"></span> {{$movie->title}}
+@endsection
+
 @section('content')
   <div class="hero mv-single-hero">
     <div class="container">

@@ -94,7 +94,7 @@ class MovieController extends Controller
     public function show($id)
     {
         $client = new GuzzleHttp\Client();
-        $res = $client->get('https://api.themoviedb.org/3/movie/' . $id . '?api_key=14549aeb10d953e4b4868c68a1955393');
+        $res = $client->get('http://api.themoviedb.org/3/movie/' . $id . '?api_key=14549aeb10d953e4b4868c68a1955393');
         $movie = $res->getBody();
         $movie = GuzzleHttp\json_decode($movie);
 
