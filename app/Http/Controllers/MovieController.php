@@ -133,4 +133,6 @@ class MovieController extends Controller
         Session::flash('message', 'Successfully deleted the nerd!');
         return Redirect::to('movies.index');
     }
+
+
 }
