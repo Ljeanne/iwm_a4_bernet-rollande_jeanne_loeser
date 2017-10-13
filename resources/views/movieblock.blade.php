@@ -7,7 +7,7 @@
             <div class="infos col-md-12">
                 <h3>{{$movie->title}}</h3>
                 <p class="released_date">Released {{$movie->release_date}}</p>
-                <p>{{ substr($movie->overview, 0, 200) }} <a href="">(read more)</a></p>
+                <p>{{ substr($movie->overview, 0, 200) }} <a href="{{ URL::to('/movies/'.$movie->id) }}">(read more)</a></p>
             </div>
             <div class="btn col-md-12">
 

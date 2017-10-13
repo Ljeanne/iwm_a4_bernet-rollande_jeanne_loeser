@@ -1,4 +1,9 @@
 @extends('template.app')
+
+@section('title')
+    My movies
+@endsection
+
 @section('content')
     <div class="container">
         <div class="row">
