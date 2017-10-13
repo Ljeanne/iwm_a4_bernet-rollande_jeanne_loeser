@@ -6,11 +6,12 @@
  */
 
 require('./bootstrap');
-require('./custom');
+//require('./custom');
 require('./jquery');
-require('./plugins');
-require('./plugins2');
-require('./plugins2');
+require('./movie');
+//require('./plugins');
+//require('./plugins2');
+//require('./plugins2');
 
 window.Vue = require('vue');
 
