@@ -1,3 +1,7 @@
+
+    </div>
+</div>
+
 <footer class="ht-footer">
     <div class="container">
         <div class="flex-parent-ft">
@@ -55,5 +59,6 @@
     </div>
 </footer>
 <!-- end -->
+<script src="{{asset('js/app.js')}}"></script>
 </body>
 </html>

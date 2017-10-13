@@ -61,14 +61,20 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'movie_id' => 'required',
-            'category' => 'required',
-        ],
+        $this->validate($request, [
+                'movie_id' => 'required',
+                'category' => 'required',
+            ],
             [
                 'movie_id.required' => 'Un film doit être ajouté est requis.',
                 'category.required' => 'Une categorie est requise.',
-            ]);
+            ]
+        );
+
+        if (!Auth::user()) {
+            return "Vous n'êtes pas connecté";
+        }
+
         Movie::create([
             'user_id' => Auth::user()->id,
             'movie_id' => $request->movie_id,

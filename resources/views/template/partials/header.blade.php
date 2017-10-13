@@ -6,6 +6,7 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="author" content="">
+    <meta name="csrf_token" content="{!! csrf_token() !!}"/>
     <link rel="profile" href="#">
 
     <!--Google Font-->
@@ -19,7 +20,6 @@
     <link rel="stylesheet" href="{{asset('css/template.css')}}">
     <link rel="stylesheet" href="{{asset('css/templateplugins.css')}}">
 
-    <script src="{{asset('js/app.js')}}"></script>
 
 </head>
 <body>
@@ -34,7 +34,7 @@
 </div>-->
 
 <!-- BEGIN | Header -->
-<header class="ht-header">
+<header class="ht-header"  id="app">
     <div class="container">
         <nav class="navbar navbar-default navbar-custom">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -104,11 +104,7 @@
 
         <!-- top search form -->
         <div class="top-search">
-            <select>
-                <option value="united">TV show</option>
-                <option value="saab">Others</option>
-            </select>
-            <input type="text" placeholder="Search for a movie, TV Show or celebrity that you are looking for">
+            <input type="text" placeholder="Search for a movie" id="searchbar" data-path="{{ route('search', '') }}">
         </div>
     </div>
 </header>
@@ -129,3 +125,7 @@
         </div>
     </div>
 </div>
+
+
+<div class="page-single">
+    <div class="container">

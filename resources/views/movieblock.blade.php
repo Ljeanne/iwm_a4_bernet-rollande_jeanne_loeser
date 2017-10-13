@@ -10,25 +10,25 @@
                 <p>{{ substr($movie->overview, 0, 200) }} <a href="">(read more)</a></p>
             </div>
             <div class="btn col-md-12">
-                <form method="POST" action="{{route('movies.store')}}">
+                <form method="POST" action="{{route('movies.store')}}" id="tosee{{ $movie->id }}">
                     {{csrf_field()}}
                     <input type="hidden" value="{{$movie->id}}" name="movie_id">
                     <input type="hidden" value="0" name="seen">
                     <input type="hidden" value="{{$movie->genre_ids[0]}}" name="category">
-                    <button type="submit" class="" value="Send">Ajouter à ma liste non vue</button>
+                    {{--<button type="submit" class="" value="Send">Ajouter à ma liste non vue</button>--}}
                 </form>
-                <form method="POST" action="{{route('movies.store')}}">
+                <form method="POST" action="{{route('movies.store')}}" id="seen{{ $movie->id }}">
                     {{csrf_field()}}
                     <input type="hidden" value="{{$movie->id}}" name="movie_id">
                     <input type="hidden" value="1" name="seen">
                     <input type="hidden" value="{{$movie->genre_ids[0]}}" name="category">
-                    <button type="submit" class="" value="Send">Déja vu</button>
+                    {{-- <button type="submit" class="" value="Send">Déja vu</button> --}}
                 </form>
                 <div class="social-btn">
-                    <a href="#" class="parent-btn"><i class="ion-heart"></i>I want to see this movie</a>
+                    <a href="" class="parent-btn tosee-btn" data-movie="{{ $movie->id }}"><i class="ion-heart"></i>I want to see this movie</a>
                 </div>
                 <div class="social-btn">
-                    <a href="#" class="parent-btn"><i class="ion-eye-disabled"></i>I have seen this movie</a>
+                    <a href="" class="parent-btn seen-btn" data-movie="{{ $movie->id }}"><i class="ion-eye-disabled"></i>I have seen this movie</a>
                 </div>
             </div>
         </div>

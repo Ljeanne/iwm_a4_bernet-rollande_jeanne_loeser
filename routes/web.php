@@ -18,6 +18,6 @@ Route::get('/', 'HomeController@index');
 Route::resource('/tasks', 'TaskController');
 Route::resource('/movies', 'MovieController');
 Auth::routes();
-Route::get('/search/{search}', 'SearchController@index');
+Route::get('/search/{search}', 'SearchController@index')->name('search');
 
 Route::get('/home', 'HomeController@index')->name('home');
