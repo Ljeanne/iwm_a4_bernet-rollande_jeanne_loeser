@@ -6,6 +6,11 @@ Install projetc :
  - composer install
  - npm run dev
 
+Create .env:
+
+- copy: .env.example
+and modif name db, mail (if config), poort...
+
 Start server :
 
 - php artisan serve
@@ -37,3 +42,17 @@ For create a controller, ressource and model:
 Compile scss:
 
 - npm run dev
+
+
+Opcache:
+
+- php artisan opcache:clear
+
+  Personalise: 
+opcache.enable=1
+opcache.memory_consumption=512
+opcache.interned_strings_buffer=64
+opcache.max_accelerated_files=32531
+opcache.validate_timestamps=0
+opcache.save_comments=1
+opcache.fast_shutdown=0
