@@ -34,11 +34,12 @@ class HomeController extends Controller
         $movies = $res->getBody();
         $movies = GuzzleHttp\json_decode($movies);
         $movies = $movies->results;
+
         $views = [];
 
+        $user = Auth::user();
 
-
-        if (Auth::user()->id) {
+        if ($user !== NULL) {
             $knownmovies = Movie::where('user_id', Auth::user()->id)
                 ->get();
 

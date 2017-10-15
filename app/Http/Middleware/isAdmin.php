@@ -15,9 +15,11 @@ class isAdmin
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::check() && Auth::user()->is_admin == 1){
-            return $next($request);
+        if (!$request->session()->exists('user')) {
+            // user value cannot be found in session
+            return redirect('/');
         }
-        return $next('home');
+
+        return $next($request);
     }
 }

@@ -21,3 +21,9 @@ Auth::routes();
 Route::get('/search/{search}', 'SearchController@index')->name('search');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware' => 'isadmin'], function () {
+    Route::get('/', function ()    {
+        // Uses User Session Middleware
+    });
+});
