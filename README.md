@@ -48,7 +48,7 @@ Opcache:
 
 - php artisan opcache:clear
 
-  Personalise: 
+ Parms config php.ini: 
 opcache.enable=1
 opcache.memory_consumption=512
 opcache.interned_strings_buffer=64
