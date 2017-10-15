@@ -20,36 +20,39 @@ $( document ).ready(function() {
     });
 
     // When clicking on "I want to see this movie
-    body.on( "click", ".tosee-btn", function(e) {
+    body.on( "click", ".link-0", function(e) {
         e.preventDefault();
         var form = $('#tosee'+$(this).data('movie'));
-        console.log('#tosee'+$(this).data('movie'));
-        console.log(form.attr('action'));
+        //console.log('#tosee'+$(this).data('movie'));
+        //console.log(form.attr('action'));
         $.ajax({
             type: "POST",
             url: form.attr('action'),
             data: form.serialize(),
+            async: false,
             success: function( data ) {
-                console.log( 'To see added' );
-                console.log( data );
+                console.log( '.form-btn-'+$(this).data('movie') );
+                $('.form-btn-'+$(this).data('movie')).removeClass('active');
+                $('.link-'+'0'+'.form-btn-'+data).addClass('active');
             }
         });
         return false;
     });
 
     // When clicking on "I have seen this movie
-    body.on( "click", ".seen-btn", function(e) {
+    body.on( "click", ".link-1", function(e) {
         e.preventDefault();
         var form = $('#seen'+$(this).data('movie'));
-        console.log('#seen'+$(this).data('movie'));
-        //console.log(form.attr('action'));
+        //console.log('#seen'+$(this).data('movie'));
         $.ajax({
             type: "POST",
             url: form.attr('action'),
             data: form.serialize(),
+            async: false,
             success: function( data ) {
-                //console.log( 'Seen added' );
-                console.log( data );
+                console.log( '.form-btn-'+data );
+                $('.form-btn-'+data).removeClass('active');
+                $('.link-'+'1'+'.form-btn-'+data).addClass('active');
             }
         });
         return false;

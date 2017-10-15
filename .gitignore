@@ -46,7 +46,6 @@ Thumbs.db
 
 /public/hot
 /public/storage
-/public/css/*
 /storage/*.key
 /vendor
 /.vagrant

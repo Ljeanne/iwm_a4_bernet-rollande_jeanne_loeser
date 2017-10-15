@@ -94,7 +94,7 @@ class MovieController extends Controller
             ]);
         }
 
-        return 'Entry created';
+        return $request->movie_id;
         //return redirect()->route('home');
     }
 
@@ -140,7 +140,7 @@ class MovieController extends Controller
             ->first();
         $movie->update($request->all());
 
-        return redirect()->back();
+        return $request->movie_id;
     }
 
     /**
