@@ -17,7 +17,7 @@ class isAdmin
     {
         if (!$request->session()->exists('user')) {
             // user value cannot be found in session
-            return redirect('home');
+            return redirect('login');
         }
 
         return $next($request);

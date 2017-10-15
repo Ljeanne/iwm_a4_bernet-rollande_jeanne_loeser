@@ -24,5 +24,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'isadmin'], function () {
     Route::resource('/movies', 'MovieController');
-
 });

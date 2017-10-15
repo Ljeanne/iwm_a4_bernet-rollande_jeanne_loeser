@@ -95,8 +95,6 @@ class MovieController extends Controller
             ]);
         }
 
-
-
         return 'Entry created';
         //return redirect()->route('home');
     }
