@@ -11,7 +11,7 @@
     {{--<button type="submit" class="btn btn-primary" value="Send"><i class="{{$picto}}"></i>{{$button}}</button>--}}
 </form>
 <div class="social-btn">
-    <a href="" class="parent-btn link-{{$seen}} seen-btn form-btn-{{ $m->id }}" data-movie="{{ $m->id }}"><i class="{{$picto}}"></i>{{$button}}</a>
+    <a href="" class="parent-btn link-{{$seen}} seen-btn form-btn-{{ $m->id }} {{ isset($status) &&($status === $seen) ? 'active' : '' }}" data-movie="{{ $m->id }}"><i class="{{$picto}}"></i>{{$button}}</a>
 </div>
 {{--
 @if($movie->favorite == 1)

@@ -7,7 +7,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <h2>Liste des films non vues</h2>
+            <h2>Liste des films à regarder</h2>
             @foreach($moviesNotSeen as $movie)
                 <div class="col-md-3 isolatedmovie">
                     {{--
@@ -31,7 +31,7 @@
         </div>
         <div class="row">
             <div>
-                <h2>Liste des films vues</h2>
+                <h2>Liste des films vus</h2>
                 @foreach($moviesSeen as $movie)
                     <div class="col-md-3 isolatedmovie">
                         {{--

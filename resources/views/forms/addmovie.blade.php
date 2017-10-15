@@ -5,5 +5,6 @@
     <input type="hidden" value="{{ count($movie->genre_ids) > 0 ? $movie->genre_ids[0] : 0 }}" name="category">
 </form>
 <div class="social-btn">
-    <a href="" class="parent-btn seen-btn  link-{{$seen}}" data-movie="{{ $movie->id }}"><i class="{{$picto}}"></i>{{$button}}</a>
+    <a href="" class="parent-btn seen-btn form-btn-{{ $movie->id }} link-{{$seen}}" data-movie="{{ $movie->id }}"><i class="{{$picto}}"></i>{{$button}}</a>
+
 </div>

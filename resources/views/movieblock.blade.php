@@ -13,10 +13,10 @@
                 <?php isset($views[$movie->id]) ? $status = $views[$movie->id] : $status = -1 ?>
                 @if($status == -1)
                     @include('forms.addmovie', ['movie' => $movie, 'seen' => 0, 'button' => 'I want to see this movie', 'picto' => 'ion-heart'])
-                    @include('forms.addmovie', ['movie' => $movie, 'seen' => 1, 'button' => 'I have seen this movie', 'picto' => 'ion-eye-disabled'])
+                    @include('forms.addmovie', ['movie' => $movie, 'seen' => 1, 'button' => 'I have seen this movie', 'picto' => 'ion-eye'])
                 @else
                     @include('forms.editmovie', ['movie' => $movie, 'status' => $status, 'seen' => 0, 'button' => 'I want to see this movie', 'picto' => 'ion-heart'])
-                    @include('forms.editmovie', ['movie' => $movie, 'seen' => 1, 'button' => 'I have seen this movie', 'picto' => 'ion-eye-disabled'])
+                    @include('forms.editmovie', ['movie' => $movie, 'status' => $status, 'seen' => 1, 'button' => 'I have seen this movie', 'picto' => 'ion-eye'])
                 @endif
             </div>
         </div>

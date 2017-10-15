@@ -23,16 +23,13 @@ $( document ).ready(function() {
     body.on( "click", ".link-0", function(e) {
         e.preventDefault();
         var form = $('#tosee'+$(this).data('movie'));
-        //console.log('#tosee'+$(this).data('movie'));
-        //console.log(form.attr('action'));
         $.ajax({
             type: "POST",
             url: form.attr('action'),
             data: form.serialize(),
             async: false,
             success: function( data ) {
-                console.log( '.form-btn-'+$(this).data('movie') );
-                $('.form-btn-'+$(this).data('movie')).removeClass('active');
+                $('.form-btn-'+data).removeClass('active');
                 $('.link-'+'0'+'.form-btn-'+data).addClass('active');
             }
         });
@@ -43,14 +40,12 @@ $( document ).ready(function() {
     body.on( "click", ".link-1", function(e) {
         e.preventDefault();
         var form = $('#seen'+$(this).data('movie'));
-        //console.log('#seen'+$(this).data('movie'));
         $.ajax({
             type: "POST",
             url: form.attr('action'),
             data: form.serialize(),
             async: false,
             success: function( data ) {
-                console.log( '.form-btn-'+data );
                 $('.form-btn-'+data).removeClass('active');
                 $('.link-'+'1'+'.form-btn-'+data).addClass('active');
             }
@@ -61,7 +56,6 @@ $( document ).ready(function() {
 
     // Search bar
     $('#searchbar').on('keypress', function (e) {
-    console.log(e.keyCode );
         if(e.keyCode  === 13 && $(this).val()){
             window.location.replace($(this).data('path')+'/'+$(this).val());
         }
