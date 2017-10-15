@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Middleware;
-
+use Illuminate\Support\Facades\Auth;
 use Closure;
 
-class isAdmin
+class IsUser
 {
     /**
      * Handle an incoming request.
@@ -15,9 +15,15 @@ class isAdmin
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::check() && Auth::user()->is_admin == 1){
+        if(!Auth::check()){
+            return redirect('/login');
+        }
+
+        if(!Auth::user()->access){
             return $next($request);
         }
-        return $next('home');
+        $user = Auth::user();
+        return $next($request)->with('user', $user);
     }
+
 }

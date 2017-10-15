@@ -12,10 +12,9 @@ use Illuminate\Support\Facades\DB;
 
 class MovieController extends Controller
 {
-
     public function __controller()
     {
-        $this->middleware('isadmin');
+        $this->middleware('isuser');
     }
 
     /**
